@@ -15,6 +15,11 @@ import { ContactComponent } from './header/contact/contact.component';
 import { SignInComponent } from './header/sign-in/sign-in.component';
 import { SignUpComponent } from './header/sign-up/sign-up.component';
 import { PortfolioComponent } from './header/portfolio/portfolio.component';
+import { FooterComponent } from './footer/footer.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SharedModule } from './shared/shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -24,16 +29,22 @@ import { PortfolioComponent } from './header/portfolio/portfolio.component';
     ContactComponent,
     SignInComponent,
     SignUpComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
+    SharedModule,
+    ReactiveFormsModule,
+    FormsModule,
+    FontAwesomeModule,
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
