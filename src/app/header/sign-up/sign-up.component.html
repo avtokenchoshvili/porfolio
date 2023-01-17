@@ -1,53 +1,53 @@
-
-<div class="container">
-    <div>
-      <mat-form-field  appearance="outline" color="primary">
-          <mat-icon matPrefix>person_outline</mat-icon>
-        <mat-label>name</mat-label>
-        <input type="text" matInput />
-      </mat-form-field>
+<div class="displayTable">
+  <div class="displayTableCell">
+    <div class="authBlock">
+      <h3>Sign Up</h3>
+      <div class="formGroup">
+        <input
+          type="email"
+          class="formControl"
+          placeholder="Email Address"
+          #userEmail
+          required
+        />
+      </div>
+      <div class="formGroup">
+        <input
+          type="password"
+          class="formControl"
+          placeholder="Password"
+          #userPwd
+          required
+        />
+      </div>
+      <div class="formGroup">
+        <input
+          type="button"
+          class="btn btnPrimary"
+          value="Sign Up"
+          (click)="authService.SignUp(userEmail.value, userPwd.value)"
+        />
+      </div>
+      <div class="formGroup">
+        <span class="or"><span class="orInner">Or</span></span>
+      </div>
+      <!-- Continue with Google -->
+      <div class="formGroup">
+        <button
+          type="button"
+          class="btn googleBtn"
+          (click)="authService.GoogleAuth()"
+        >
+          <i class="fab fa-google-plus-g"></i>
+          Continue with Google
+        </button>
+      </div>
     </div>
-  
-    <div>
-      <mat-form-field appearance="outline" color="primary">
-          <mat-icon matPrefix>person_outline</mat-icon>
-        <mat-label>surname</mat-label>
-        <input type="text" matInput />
-      </mat-form-field>
+    <div class="redirectToLogin">
+      <span
+        >Already have an account?
+        <span class="redirect" routerLink="/sign-in">Log In</span></span
+      >
     </div>
-  
-    <div>
-      <mat-form-field appearance="outline" color="primary">
-          <mat-icon matPrefix>email</mat-icon>
-        <mat-label>email</mat-label>
-        <input type="text" matInput />
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field appearance="outline" color="primary">
-          <mat-icon matPrefix>lock_outline</mat-icon>
-        <mat-label>password</mat-label>
-        <input type="text" matInput />
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field appearance="outline" color="primary">
-          <mat-icon matPrefix>elderly</mat-icon>
-        <mat-label>age</mat-label>
-        <input type="text" matInput />
-      </mat-form-field>
-    </div>
-  
-    <div>
-      <mat-form-field appearance="outline" color="primary">
-          <mat-icon matPrefix>phone</mat-icon>
-        <mat-label>phone Number</mat-label>
-        <input type="text" matInput />
-      </mat-form-field>
-    </div>
-  
-    <button mat-raised-button color="primary" >
-     sign up
-      </button>
   </div>
-  
+</div>

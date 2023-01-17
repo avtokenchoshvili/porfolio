@@ -20,6 +20,18 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SharedModule } from './shared/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { AuthService } from "./shared/services/auth.service";
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+
+
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 @NgModule({
   declarations: [
@@ -30,9 +42,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SignInComponent,
     SignUpComponent,
     PortfolioComponent,
-    FooterComponent
+    FooterComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent,
+    DashboardComponent
   ],
   imports: [
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireStorageModule,
     BrowserModule,
     SharedModule,
     ReactiveFormsModule,
@@ -46,7 +66,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
    
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
